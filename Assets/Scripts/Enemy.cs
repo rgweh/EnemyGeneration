@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
         Move();
     }
 
-    public void TakeMovementDirection(Vector3 movementDirection)
+    public void SetMovementDirection(Vector3 movementDirection)
     {
         _movementDirection = movementDirection;
     }
