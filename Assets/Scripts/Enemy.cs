@@ -1,22 +1,19 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private Vector3 _movementDirection;
+    protected Target _target;
+    protected float _speed = 2f;
 
     private void Update()
     {
-        Move();
+        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
     }
 
-    public void SetMovementDirection(Vector3 movementDirection)
+    public void SetTarget(Target target)
     {
-        _movementDirection = movementDirection;
-    }
-
-    private void Move()
-    {
-        transform.position += _movementDirection;
+        _target = target;
     }
 }

@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    [SerializeField] private Vector3 _initialDirection;
+    [SerializeField] private Target _target;
+    [SerializeField] private Enemy _enemy;
+    
+    public Enemy Enemy => _enemy;
 
-    public void SpawnEnemy(Enemy enemy)
+    public void SetUpEnemy(Enemy enemy)
     {
         enemy.transform.position = transform.position;
-        enemy.SetMovementDirection(_initialDirection);
+        enemy.SetTarget(_target);
     }
 }

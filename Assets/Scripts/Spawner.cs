@@ -6,10 +6,9 @@ using Unity.VisualScripting;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private Enemy _baseEnemy;
-    [SerializeField] private List<SpawnPoint> _spawners;
+    [SerializeField] private List<SpawnPoint> _spawnPoints;
 
-    private int _spawnersCount;
+    [SerializeField] private int _spawnPointsCount;
     private float _spawnTime = 2f;
     private bool _isSpawning = false;
 
@@ -26,8 +25,8 @@ public class Spawner : MonoBehaviour
     [ContextMenu("Refresh Child Array")]
     private void RefreshChildArray()
     {
-        _spawners = new List<SpawnPoint>();
-        _spawnersCount = 0;
+        _spawnPoints = new List<SpawnPoint>();
+        _spawnPointsCount = 0;
 
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -35,8 +34,8 @@ public class Spawner : MonoBehaviour
 
             if (child.TryGetComponent(out SpawnPoint spawner))
             {
-                _spawners.Add(spawner);
-                _spawnersCount++;
+                _spawnPoints.Add(spawner);
+                _spawnPointsCount++;
             }
         }
     }
@@ -48,8 +47,8 @@ public class Spawner : MonoBehaviour
 
         while (_isSpawning)
         {
-            int spawnerIndex = Random.Range(0, _spawnersCount);
-            _spawners[spawnerIndex].SpawnEnemy(Instantiate(_baseEnemy));
+            var spawnPoint = _spawnPoints[Random.Range(0, _spawnPointsCount)];
+            spawnPoint.SetUpEnemy(Instantiate(spawnPoint.Enemy));
 
             yield return wait;
         }
