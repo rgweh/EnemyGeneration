@@ -6,8 +6,8 @@ public class Target : MonoBehaviour
     [SerializeField] private Vector3 _startPoint;
     [SerializeField] private Vector3 _endPoint;
     [SerializeField] private float _speed;
-    [SerializeField] private Vector3 _currentTarget;
-
+    
+    private Vector3 _currentTarget;
     private Renderer _renderer;
 
     private void OnEnable()
