@@ -158,8 +158,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startPoint: {x: -1, y: 6, z: -4}
   _endPoint: {x: 7, y: 3, z: 4}
+  _targets:
+  - {x: -1, y: 6, z: -1}
+  - {x: 7, y: 3, z: 4}
   _speed: 1
-  _currentTarget: {x: 0, y: 0, z: 0}
 --- !u!135 &140608020
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -372,8 +374,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startPoint: {x: 4, y: 3, z: -5}
   _endPoint: {x: -4, y: 4, z: 2}
+  _targets:
+  - {x: 4, y: 3, z: -5}
+  - {x: -4, y: 4, z: 2}
   _speed: 1
-  _currentTarget: {x: 0, y: 0, z: 0}
 --- !u!4 &248472798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1137911833831526667, guid: b0ab121be68973c4aafe32e1e33dee59, type: 3}
@@ -853,8 +857,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startPoint: {x: 8, y: 1, z: 5}
   _endPoint: {x: 4, y: 4, z: 2}
+  _targets:
+  - {x: 8, y: 1, z: 5}
+  - {x: 4, y: 4, z: 2}
   _speed: 1
-  _currentTarget: {x: 0, y: 0, z: 0}
 --- !u!135 &1161456859
 SphereCollider:
   m_ObjectHideFlags: 0
