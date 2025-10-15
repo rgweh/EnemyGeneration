@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class Heavy : Enemy
 {
     private int _speedModifier = 2;

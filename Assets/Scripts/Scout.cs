@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class Scout : Enemy
 {
     private int _speedModifier = 2;
