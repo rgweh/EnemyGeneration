@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
         while (_isSpawning)
         {
             var spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Count)];
-            spawnPoint.SetUpEnemy(Instantiate(spawnPoint.Enemy));
+            spawnPoint.SetUpEnemy();
 
             yield return wait;
         }
