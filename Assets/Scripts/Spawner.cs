@@ -40,10 +40,12 @@ public class Spawner : MonoBehaviour
     {
         var wait = new WaitForSeconds(_spawnTime);
 
+        yield return wait;
+
         while (_isSpawning)
         {
             var spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Count)];
-            spawnPoint.SetUpEnemy();
+            spawnPoint.SpawnEnemy();
 
             yield return wait;
         }

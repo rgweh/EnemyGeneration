@@ -4,8 +4,6 @@ using UnityEngine;
 [RequireComponent (typeof(Renderer))]
 public class Target : MonoBehaviour
 {
-    [SerializeField] private Vector3 _startPoint;
-    [SerializeField] private Vector3 _endPoint;
     [SerializeField] private List<Vector3> _targets;
     [SerializeField] private float _speed;
 
