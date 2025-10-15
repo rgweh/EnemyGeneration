@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    protected Target _target;
-    protected float _speed = 2f;
+    protected Target Target;
+    protected float Speed = 2f;
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, Speed * Time.deltaTime);
     }
 
     public void SetTarget(Target target)
     {
-        _target = target;
+        Target = target;
     }
 }

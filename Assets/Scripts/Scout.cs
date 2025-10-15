@@ -4,6 +4,6 @@ public class Scout : Enemy
 
     private Scout()
     {
-        _speed *= _speedModifier;
+        Speed *= _speedModifier;
     }
 }

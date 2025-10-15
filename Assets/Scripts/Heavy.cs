@@ -4,6 +4,6 @@ public class Heavy : Enemy
 
     private Heavy()
     {
-        _speed /= _speedModifier;
+        Speed /= _speedModifier;
     }
 }
