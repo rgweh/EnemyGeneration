@@ -4,8 +4,7 @@ using System.Collections;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private List<SpawnPoint> _spawnPoints;
-
+    [SerializeField] private SpawnPoint[] _spawnPoints;
     private float _spawnTime = 2f;
     private bool _isSpawning = false;
 
@@ -22,7 +21,7 @@ public class Spawner : MonoBehaviour
     [ContextMenu("Refresh Child Array")]
     private void RefreshChildArray()
     {
-        _spawnPoints = new List<SpawnPoint>();
+        List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -30,8 +29,15 @@ public class Spawner : MonoBehaviour
 
             if (child.TryGetComponent(out SpawnPoint spawner))
             {
-                _spawnPoints.Add(spawner);
+                spawnPoints.Add(spawner);
             }
+        }
+
+        _spawnPoints = new SpawnPoint[spawnPoints.Count];
+
+        for(int i = 0;i < spawnPoints.Count; i++)
+        {
+            _spawnPoints[i] = spawnPoints[i];
         }
     }
 #endif
@@ -44,8 +50,8 @@ public class Spawner : MonoBehaviour
 
         while (_isSpawning)
         {
-            var spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Count)];
-            spawnPoint.SpawnEnemy();
+            var spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
+            spawnPoint.CreateEnemy();
 
             yield return wait;
         }
